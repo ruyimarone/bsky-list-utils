@@ -1,6 +1,6 @@
 # Blue Sky List Utils
 
-Some simple utilities to modify and interact with Bluesky lists and starterpacks. Tiny wrappers over [`atproto`](https://atproto.blue/en/latest/index.html)
+Some simple utilities to modify and interact with Bluesky lists and starterpacks. Tiny wrappers over [`atproto`](https://atproto.blue/en/latest/index.html), mostly here as simple usage examples for that library. 
 
 ## Installing
 ```bash
@@ -11,7 +11,7 @@ pip install .
 
 Installs a package named `bsky_list_utils`. 
 
-# Auth
+## Auth
 
 It seems the preferred way to to interact with bluesky resources is to create an App Password: https://bsky.app/settings/app-passwords
 
@@ -30,9 +30,18 @@ BSKY_API_USER="your_username.bsky.social" BSKY_API_PASSWORD="xxxx-xxxx-xxxx-xxxx
 
 Some of the scripts will also accept them as command line args `--api-user`, `--api-password`
 
-# Usage
+## Usage
 
-See `example.py`
+
+`get_interactions.py` will list all users who engaged/interacted with a post:
+
+```
+python get_interactions.py --url "https://bsky.app/profile/marcmarone.com/post/3lbnbizbs7s2b" 
+```
+
+`sync_lists.py` is not the greatest code, but it can help synchronize a list and several starterpacks. This is useful when there are several starterpacks for one topic (since packs are limited to 150 users), but lists seem to be unlimited in size. 
+
+Also see `example.py`:
 
 ```python
 from bsky_list_utils import handle_and_key_from_url, get_client, \
